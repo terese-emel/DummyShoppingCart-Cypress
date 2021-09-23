@@ -5,59 +5,39 @@ describe("Remove items from cart", () => {
     // Since we want to visit the same URL at the start of all our tests,
     // we include it in our beforeEach function so that it runs before each test
     cy.visit("http://localhost:3001");
-    
   });
- it("Add one item and remove that from the cart", () => {
-   cy.get('[data-test-id = "badge-warning1"]')
-     .should("have.text", "Zero");
-    
-   cy.get('[data-test-id = "btn-secondary1"]')
-     .click();
-   
-   cy.get('[data-test-id = "btn-info1"]')
-     .click();
-   
-   cy.get('[data-test-id = "badge-warning1"]')
-     .should("have.text", "Zero");
-     
-   cy.get('[data-test-id = "shopping-cart-totalCounter"]')
-     .should("have.text", 0);
- 
+  it("Add one item and remove that from the cart", () => {
+    cy.getTestId("badge-warning1").should("have.text", "Zero");
+
+    cy.getTestId("btn-secondary1").click();
+
+    cy.getTestId("btn-info1").click();
+
+    cy.getTestId("badge-warning1").should("have.text", "Zero");
+
+    cy.getTestId("shopping-cart-totalCounter").should("have.text", 0);
   });
-  
 
   it("Remove multiple items added to the cart", () => {
-  
     for (let i = 1; i < 5; i++) {
-      cy.get("[data-test-id = 'btn-secondary" + i + "']")
-        .click();
+      cy.getTestId("btn-secondary" + i).click();
     }
-     for (let i = 1; i < 5; i++) {
-       cy.get("[data-test-id = 'btn-info" + i + "']")
-         .click();
-       cy.get("[data-test-id = 'badge-warning" + i + "']")
-         .should("have.text", 'Zero');
-     }
-    cy.get('[data-test-id = "shopping-cart-totalCounter"]')
-      .should("have.text", 0);
-    
+    for (let i = 1; i < 5; i++) {
+      cy.getTestId("btn-info" + i).click();
+      cy.getTestId("badge-warning" + i).should("have.text", "Zero");
+    }
+    cy.getTestId("shopping-cart-totalCounter").should("have.text", 0);
   });
 
-   it("Remove all items from the cart except one", () => {
-     for (let i = 1; i < 5; i++) {
-       cy.get("[data-test-id = 'btn-secondary" + i + "']")
-         .click();
-     }
-     for (let i = 1; i < 4; i++) {
-       cy.get("[data-test-id = 'btn-info" + i + "']")
-         .click();
-       cy.get("[data-test-id = 'badge-warning" + i + "']")
-         .should("have.text", "Zero");
-     }
-     cy.get('[data-test-id = "badge-primary4"]')
-       .should("have.text", 1);
-     cy.get('[data-test-id = "shopping-cart-totalCounter"]')
-       .should("have.text", 1);
-   });
-  
+  it("Remove all items from the cart except one", () => {
+    for (let i = 1; i < 5; i++) {
+      cy.getTestId("btn-secondary" + i).click();
+    }
+    for (let i = 1; i < 4; i++) {
+      cy.getTestId("btn-info" + i).click();
+      cy.getTestId("badge-warning" + i).should("have.text", "Zero");
+    }
+    cy.getTestId("badge-primary4").should("have.text", 1);
+    cy.getTestId("shopping-cart-totalCounter").should("have.text", 1);
+  });
 });

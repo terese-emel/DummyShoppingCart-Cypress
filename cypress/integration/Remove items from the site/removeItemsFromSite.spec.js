@@ -9,33 +9,23 @@ describe("Delete items", () => {
 
   it("Delete all items from the application", () => {
     // remove items from the application
-    cy.get(".row").find(".col-md-4").last().find(".btn-danger").last().click();
+    cy.get('div.row:contains("Zero")').should("have.length", 4);
 
-    cy.get(".row")
-      .find(".col-md-4")
-      .click({ multiple: true })
-      .each((item, index) => {
-        cy.get(".row")
-          .find(".col-md-4")
-          .last()
-          .find(".btn-danger")
-          .last()
-          .click();
-      });
+    for (let i = 1; i < 5; i++) {
+      cy.getTestId("btn-danger" + i).click({ multiple: true });
+    }
+
     // Verify all items removed from the application
-    cy.get('div.row:contains("Zero")')
-      .should("have.length", 0);
+    cy.get('div.row:contains("Zero")').should("have.length", 0);
   });
-  
+
   it("Delete all items from the application except one", () => {
     // remove items from the application
 
     for (let i = 1; i < 4; i++) {
-      cy.get("[data-test-id = 'btn-danger" + i + "']")
-        .click();
+      cy.getTestId("btn-danger" + i).click();
     }
     // Verify an existing item removed from the application
-    cy.get('div.row:contains("Zero")')
-      .should("have.length", 1);
+    cy.get('div.row:contains("Zero")').should("have.length", 1);
   });
 });
