@@ -18,28 +18,26 @@ describe("Add items to the cart and verify total items in the cart", () => {
   it("Add at least one from all available items to the cart", () => {
     cy.get(".row").find(".btn-secondary").click({ multiple: true });
 
-    cy.get(".row")
-      .find(".col-md-1")
-      .find(".badge-primary")
+    cy.get(".badge-primary")
       .then(filterNumeric)
       .then(sumAgeValues)
       .then((cellsTotal) => {
-        cy.get(".badge-pill").then(sumAgeValues).should("eq", cellsTotal);
+         cy.getTestId("shopping-cart-totalCounter")
+           .then(sumAgeValues)
+           .should("eq", cellsTotal);
       });
   });
 
  it("Add multiple items multiple times to the cart and verify total count", () => {
-   for (let i = 0; i<5;i++) {
-     cy.get(".row").find(".btn-secondary").click({ multiple: true });
+   for (let i = 1; i < 5; i++) {
+     cy.getTestId("btn-secondary" + i).click({ multiple: true });
    }
-
-   cy.get(".row")
-     .find(".col-md-1")
-     .find(".badge-warning")
+   cy.getTestId("badge-primary"+ i)
      .then(filterNumeric)
      .then(sumAgeValues)
      .then((cellsTotal) => {
        cy.get(".badge-pill").then(sumAgeValues).should("eq", cellsTotal);
      });
+     
  });
 });
