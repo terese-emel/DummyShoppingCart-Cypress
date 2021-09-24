@@ -1,11 +1,14 @@
 
 describe("Add items to the cart and verify total items in the cart", () => {
+  
+  // Reusable helpers from lodash functions
   const isNumeric = (cell) => Cypress._.isFinite(+cell.textContent);
   const filterNumeric = (cells$) => Cypress._.filter(cells$, isNumeric);
   const toStrings = (cells$) => Cypress._.map(cells$, "textContent");
   const toNumbers = (texts) => Cypress._.map(texts, Number);
   const sum = (numbers) => Cypress._.sum(numbers);
   const sumAgeValues = Cypress._.flow([toStrings, toNumbers, sum]);
+  
   beforeEach(() => {
     // Cypress starts out with a blank slate for each test
     // so we must tell it to visit our website with the `cy.visit()` command.
