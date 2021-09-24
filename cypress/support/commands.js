@@ -24,6 +24,7 @@
 // -- This will overwrite an existing command --
 // Cypress.Commands.overwrite('visit', (originalFn, url, options) => { ... })
 
+//Custom command for fetching elements with data-test-id
 Cypress.Commands.add("getTestId", (value, ...args) =>
   cy.get(`[data-test-id = "${value}"]`, ...args)
 );
