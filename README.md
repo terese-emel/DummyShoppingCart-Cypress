@@ -33,10 +33,10 @@ In the project directory, you can run:
 
 ## Features Tested
 
-o	Adding products into shopping cart.
-o	Removing products from shopping cart.
-o	Deleting products from application.
-o	Resetting products 
-o	Total number of products added into the shopping cart
-o	UI Element properties(color,enable/disable)
+# Adding products into shopping cart.
+# Removing products from shopping cart.
+# Deleting products from application.
+# Resetting products 
+# Total number of products added into the shopping cart
+# UI Element properties(color,enable/disable)
 
