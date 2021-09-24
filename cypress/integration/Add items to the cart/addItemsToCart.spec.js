@@ -1,12 +1,22 @@
 
 describe("Add items to the cart and verify total items in the cart", () => {
   
-  // Reusable helpers from lodash functions
+   // Reusable helpers from lodash functions
+  
+  // Cypress._.isFinite() checks text equates to a number
   const isNumeric = (cell) => Cypress._.isFinite(+cell.textContent);
+  
+    //Cypress._.filter() selects cells that meet the criteria
   const filterNumeric = (cells$) => Cypress._.filter(cells$, isNumeric);
+  
+ // Cypress_.map() for converting elements to text and text to numbers
   const toStrings = (cells$) => Cypress._.map(cells$, "textContent");
   const toNumbers = (texts) => Cypress._.map(texts, Number);
+  
+  // Cypress_.sum() for reducing an array of numbers to a total
   const sum = (numbers) => Cypress._.sum(numbers);
+  
+  //if you want to compose multiple functions into one, use Cypress._.flow()
   const sumAgeValues = Cypress._.flow([toStrings, toNumbers, sum]);
   
   beforeEach(() => {
