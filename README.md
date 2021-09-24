@@ -31,3 +31,12 @@ In the project directory, you can run:
 #### `npm run cy:open`
 #### `npm run cy:run`
 
+## Features Tested
+
+o	Adding products into shopping cart.
+o	Removing products from shopping cart.
+o	Deleting products from application.
+o	Resetting products 
+o	Total number of products added into the shopping cart
+o	UI Element properties(color,enable/disable)
+
