@@ -24,19 +24,19 @@ Runs the app in the development mode.<br>
 Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
 
-## Cypress Tests
+# Cypress Tests
 
 In the project directory, you can run:
 
 #### `npm run cy:open`
 #### `npm run cy:run`
 
-## Features Tested
+# Features Tested
 
-# Adding products into shopping cart.
-# Removing products from shopping cart.
-# Deleting products from application.
-# Resetting products 
-# Total number of products added into the shopping cart
-# UI Element properties(color,enable/disable)
+Adding products into shopping cart.
+Removing products from shopping cart.
+Deleting products from application.
+Resetting products 
+Total number of products added into the shopping cart
+UI Element properties(color,enable/disable)
 
