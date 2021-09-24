@@ -24,32 +24,37 @@ describe("Add items to the cart and verify total items in the cart", () => {
     // so we must tell it to visit our website with the `cy.visit()` command.
     // Since we want to visit the same URL at the start of all our tests,
     // we include it in our beforeEach function so that it runs before each test
-    cy.visit("http://localhost:3001");
+    cy.visit("http://localhost:3000");
   });
 
 
   it("Add at least one from all available items to the cart", () => {
     cy.get(".row").find(".btn-secondary").click({ multiple: true });
 
-    cy.get(".badge-primary")
-      .then(filterNumeric)
-      .then(sumAgeValues)
-      .then((cellsTotal) => {
-         cy.getTestId("shopping-cart-totalCounter")
-           .then(sumAgeValues)
-           .should("eq", cellsTotal);
-      });
+      cy.get(".badge-primary")
+        .then(filterNumeric)
+        .then(sumAgeValues)
+        .then((cellsTotal) => {
+          cy.getTestId("shopping-cart-totalCounter")
+            .then(sumAgeValues)
+            .should("eq", cellsTotal);
+        });
   });
 
- it("Add multiple items multiple times to the cart and verify total count", () => {
+  it("Add multiple items multiple times to the cart and verify total count", () => {
+    for (let j = 3; j>0; j--) { 
    for (let i = 1; i < 5; i++) {
-     cy.getTestId("btn-secondary" + i).click({ multiple: true });
+       cy.getTestId("btn-secondary" + i).click({ multiple: true });
+       
+     }
    }
-   cy.getTestId("badge-primary"+ i)
+   cy.get(".badge-primary")
      .then(filterNumeric)
      .then(sumAgeValues)
      .then((cellsTotal) => {
-       cy.get(".badge-pill").then(sumAgeValues).should("eq", cellsTotal);
+       cy.getTestId("shopping-cart-totalCounter")
+         .then(sumAgeValues)
+         .should("eq", cellsTotal);
      });
      
  });
