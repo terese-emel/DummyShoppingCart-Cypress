@@ -59,6 +59,7 @@ class App extends Component {
             onDecrement={this.handleDecrement}
             onDelete={this.handleDelete}
             onRestart={this.handleRestart}
+            dataTestId={this.id}
           />
         </main>
       </div>
