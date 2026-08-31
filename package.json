@@ -1,41 +1,31 @@
 {
   "name": "counter-app",
-  "version": "0.1.0",
+  "version": "1.0.0",
   "private": true,
+  "type": "module",
   "engines": {
-    "node": "14.17.5",
-    "npm": "7.24.0"
-  },
-  "homepage": "https://arnab-datta.github.io/counter-app",
-  "dependencies": {
-    "bootstrap": "^4.3.1",
-    "chai-colors": "^1.0.1",
-    "font-awesome": "^4.7.0",
-    "jquery": "^3.3.1",
-    "popper.js": "^1.15.0",
-    "react": "^16.8.6",
-    "react-dom": "^16.8.6",
-    "react-scripts": "2.1.8",
-    "typescript": "^3.4.2"
+    "node": ">=22.12.0",
+    "npm": ">=10"
   },
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject",
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
     "cy:open": "cypress open",
-    "cy:run": "cypress run --spec \"cypress/integration/app/**/*\""
+    "cy:run": "cypress run"
   },
-  "eslintConfig": {
-    "extends": "react-app"
+  "dependencies": {
+    "bootstrap": "^5.3.8",
+    "lucide-react": "^1.37.0",
+    "react": "^19.2.8",
+    "react-dom": "^19.2.8"
   },
-  "browserslist": [
-    ">0.2%",
-    "not dead",
-    "not ie <= 11",
-    "not op_mini all"
-  ],
   "devDependencies": {
-    "cypress": "^8.4.1"
+    "@types/react": "^19.2.18",
+    "@types/react-dom": "^19.2.5",
+    "@vitejs/plugin-react": "^6.1.1",
+    "cypress": "^15.21.1",
+    "typescript": "^7.0.2",
+    "vite": "^8.2.2"
   }
 }

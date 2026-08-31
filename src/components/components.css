@@ -1,0 +1,33 @@
+.counter-badge,
+.action-button {
+   min-width: 54px;
+  height: 44px;
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  box-sizing: border-box;
+}
+
+.counter-badge {
+  border-radius: 6px;
+  font-size: 18px;
+  font-weight: 600;
+  
+}
+
+.counter-badge-empty {
+  background-color: #ffc107;
+  color: #212529;
+}
+
+.counter-badge-active {
+  background-color: #0d6efd;
+  color: white;
+}
+
+.action-button svg {
+  width: 20px;
+  height: 20px;
+}
