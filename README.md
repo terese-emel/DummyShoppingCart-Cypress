@@ -4,11 +4,7 @@
 
 **This is a very basic app but useful to understand the React Components, states, Data Flow, parent to child etc. .**
 
-## Live URL :-
-
-
-
-**OR your can do the following to run in your local machine**
+**you can do the following to run in your local machine**
 
 ## Scripts
 
