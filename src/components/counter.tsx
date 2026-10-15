@@ -15,7 +15,7 @@ type CounterProps = {
 
 const getBadgeClasses = (counter: CounterItem) =>
   counter.value === 0
-    ? "counter-badge counter-badge-empty"
+    ? "counter-badge counter-badge-warning"
     : "counter-badge counter-badge-active";
 
 const getBadgeTestId = (counter: CounterItem) => {
@@ -41,12 +41,12 @@ const Counter = ({
   return (
     <div className="row align-items-center">
       <div className="col-md-1">
-      <span
-  data-test-id={getBadgeTestId(counter)}
-  className={`${getBadgeClasses(counter)}`}
->
-  {formatCount(counter)}
-</span>
+        <span
+          data-test-id={getBadgeTestId(counter)}
+          className={`${getBadgeClasses(counter)}`}
+        >
+          {formatCount(counter)}
+        </span>
       </div>
 
       <div className="col-md-4">
