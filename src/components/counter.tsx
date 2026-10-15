@@ -14,9 +14,7 @@ type CounterProps = {
 };
 
 const getBadgeClasses = (counter: CounterItem) =>
-  counter.value === 0
-    ? "counter-badge counter-badge-warning"
-    : "counter-badge counter-badge-active";
+  counter.value === 0 ? "counter-badge bg-warning" : "counter-badge bg-primary";
 
 const getBadgeTestId = (counter: CounterItem) => {
   return counter.value === 0
