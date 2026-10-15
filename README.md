@@ -15,8 +15,6 @@ Install node modules
 #### `npm run dev -- --host 0.0.0.0`
 #### `npm run cy:run`
 
-The application must be running on port `5173` before Cypress starts. CI starts Vite automatically.
-
 In the project directory, you can run:
 
 #### `npm start`
@@ -31,9 +29,6 @@ In the project directory, you can run:
 #### `npm run cy:open`
 
 #### `npm run cy:run`
-#### `npm run test:cypress`
-
-The existing Cypress tests are organized under `tests/` to match the shared QA workflow pattern. The suite produces screenshots for failed tests and CI retains them as artifacts.
 
 # Features Tested
 

@@ -12,8 +12,7 @@
     "build": "vite build",
     "preview": "vite preview",
     "cy:open": "cypress open",
-    "cy:run": "cypress run",
-    "test:cypress": "cypress run"
+    "cy:run": "cypress run"
   },
   "dependencies": {
     "bootstrap": "^5.3.8",
