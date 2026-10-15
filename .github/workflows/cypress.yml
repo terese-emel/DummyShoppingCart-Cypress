@@ -1,0 +1,66 @@
+name: Cypress Tests
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: cypress-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "22.12.0"
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Build application
+        run: npm run build
+
+      - name: Start Vite application
+        run: |
+          nohup npm run dev -- --host 0.0.0.0 > "$RUNNER_TEMP/vite.log" 2>&1 &
+
+          for attempt in {1..30}; do
+            if curl --fail --silent http://127.0.0.1:5173/ >/dev/null; then
+              exit 0
+            fi
+            sleep 2
+          done
+
+          cat "$RUNNER_TEMP/vite.log"
+          exit 1
+
+      - name: Verify Cypress
+        run: npx cypress verify
+
+      - name: Run Cypress tests
+        run: npm run cy:run
+
+      - name: Upload Cypress evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: cypress-evidence-${{ github.run_id }}
+          path: |
+            cypress/screenshots/
+            cypress/videos/
+            ${{ runner.temp }}/vite.log
+          if-no-files-found: warn

@@ -10,7 +10,12 @@
 
 Install node modules
 
-#### `npm install`
+####
+
+`npm ci
+npm run build
+npm run dev -- --host 0.0.0.0
+npm run cy:run`
 
 In the project directory, you can run:
 
@@ -19,20 +24,19 @@ In the project directory, you can run:
 Runs the app in the development mode.<br>
 Open [http://localhost:5173](http://localhost:5173) to view it in the browser.
 
-
 # Cypress Tests
 
 In the project directory, you can run:
 
 #### `npm run cy:open`
+
 #### `npm run cy:run`
 
 # Features Tested
 
-* Adding products into shopping cart
-* Removing products from shopping cart
-* Deleting products from application
-* Resetting products 
-* Total number of products added into the shopping cart
-* UI Element properties(color,enable/disable)
-
+- Adding products into shopping cart
+- Removing products from shopping cart
+- Deleting products from application
+- Resetting products
+- Total number of products added into the shopping cart
+- UI Element properties(color,enable/disable)
