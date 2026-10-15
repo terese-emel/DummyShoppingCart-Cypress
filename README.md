@@ -10,12 +10,10 @@
 
 Install node modules
 
-####
-
-npm ci
-npm run build
-npm run dev -- --host 0.0.0.0
-npm run cy:run
+#### `npm ci`
+#### `npm run build`
+#### `npm run dev -- --host 0.0.0.0`
+#### `npm run cy:run`
 
 In the project directory, you can run:
 
